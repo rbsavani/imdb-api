@@ -1,0 +1,58 @@
+<div class="container">
+<h1>Search</h1>
+<form id="form-id" (ngSubmit)="getIMDBData()" #imdbForm="ngForm" enctype="multipart/form-data">
+  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+    {{message}}
+  </div>
+  <div class="form-group">
+    <div class="col-md-12">
+      <label for="isbn">Movie Title</label>
+      <input type="text" class="form-control" placeholder="Movie Title" [(ngModel)]="imdbData.title" name="title" required/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-6 margin-top-10">
+      <button class="btn btn-primary" type="submit" [disabled]="!imdbForm.form.valid">Search</button>
+    </div>
+  </div>
+</form>
+  <div class="card" *ngIf="resData.status == 'true'">
+    <div class="card-header">
+      Detail
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item"><strong>ID: </strong> {{resData.imdb_id}}</li>
+                <li class="list-group-item"><b>Title:</b> {{resData.title}}</li>
+                <li class="list-group-item"><b>Year:</b> {{resData.year}}</li>
+                <li class="list-group-item"><b>Release Date:</b> {{resData.released}}</li>
+                <li class="list-group-item"><b>RunTime:</b> {{resData.runtime}}</li>
+                <li class="list-group-item"><b>Genre:</b> {{resData.genre}}</li>
+                <li class="list-group-item"><b>Director:</b> {{resData.director}}</li>
+                <li class="list-group-item"><b>Writers:</b> {{resData.writers}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group">
+                <li class="list-group-item"><b>Actors:</b> {{resData.actors}}</li>
+                <li class="list-group-item"><b>Country:</b> {{resData.country}}</li>
+                <li class="list-group-item"><b>Language:</b> {{resData.language}}</li>
+                <li class="list-group-item"><b>Rating:</b> {{resData.rating}}</li>
+                <li class="list-group-item"><b>Votes:</b> {{resData.votes}}</li>
+                <li class="list-group-item"><b>Production:</b> {{resData.production}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

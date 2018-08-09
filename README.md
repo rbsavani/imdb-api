@@ -10,7 +10,7 @@
 	composer install<br>
 4.After you run  
 	Backend url ex: http://localhost:8000	<br>
-5.in fronetend run ng serve and in backend run php artisan serve
+5.in fronetend run ng serve and in backend run php artisan serve <br>
 	Frontend url ex: http://localhost:4200	<br>
     
     

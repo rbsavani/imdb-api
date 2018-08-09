@@ -34,6 +34,42 @@ class IMDB extends Model
         }
         return $query;
     }
+
+    // Year Search Model Method
+    public function scopeSearchYear($query, $year)
+    {
+        if ($year != '') {
+            $query->where('year', 'like', '%' . $year . '%');
+        }
+        return $query;
+    }
+
+    // Genres Search Model Method
+    public function scopeSearchGenres($query, $data)
+    {
+        if ($data != '') {
+            $query->where('genre', 'like', '%' . $data . '%');
+        }
+        return $query;
+    }
+
+    // Rating Search Model Method
+    public function scopeSearchRatingH($query, $data)
+    {
+        if ($data != '') {
+            $query->where('rating', '>=', $data);
+        }
+        return $query;
+    }
+
+    // Rating Search Model Method
+    public function scopeSearchRatingL($query, $data)
+    {
+        if ($data != '') {
+            $query->where('rating', '<=', $data);
+        }
+        return $query;
+    }
     
     protected $table = 'imdb';
 }

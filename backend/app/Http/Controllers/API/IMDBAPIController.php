@@ -201,4 +201,58 @@ class IMDBAPIController extends Controller
 
         }
     }
+
+    /**
+     * Get Movie Data search by year.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function localSearchYear($data = '', $type = 'json')
+    {
+        $imdbData = IMDB::SearchYear($data)->get();
+        if($imdbData){ 
+            return response()->success($imdbData, 200);    
+        } else {
+            return response()->error($imdbData, 400);
+        }
+    }
+
+    /**
+     * Get Movie Data search by year.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function localSearchGenres($data = '', $type = 'json')
+    {
+        $imdbData = IMDB::SearchGenres($data)->get();
+        if($imdbData){ 
+            return response()->success($imdbData, 200);    
+        } else {
+            return response()->error($imdbData, 400);
+        }
+    }
+
+    /**
+     * Get Movie Data search by year.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function localSearchByRating($data = '', $GL = '1', $type = 'json')
+    {
+        if ($GL == 1) {
+            $imdbData = IMDB::SearchRatingH($data)->get();
+            if($imdbData){ 
+                return response()->success($imdbData, 200);    
+            } else {
+                return response()->error($imdbData, 400);
+            }
+        } elseif ($GL == 2) {
+            $imdbData = IMDB::SearchRatingL($data)->get();
+            if($imdbData){ 
+                return response()->success($imdbData, 200);    
+            } else {
+                return response()->error($imdbData, 400);
+            }
+        }
+    }
 }

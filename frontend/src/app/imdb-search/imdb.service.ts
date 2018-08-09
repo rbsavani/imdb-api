@@ -43,6 +43,16 @@ export class ImdbService {
         .catch(this.handleError)
   }
 
+  // Get Movie Detail By Keyword and year Search
+  // Method : GET
+  // API Route Name : getByIMDBId
+  getIMDBDataByLocalYear($year){
+    let url = this.environmentService.setApiServiceById('searchYear', $year)
+    return this._http.get(url)
+        .map(res=> res)
+        .catch(this.handleError)
+  }
+
   // Error Handler
   private handleError (error: HttpErrorResponse | any) {
     let errMsg: string;

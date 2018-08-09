@@ -16,4 +16,7 @@ Route::group(['middleware' => ['cors','api']], function () {
 	Route::get('title/{title}', 'API\IMDBAPIController@title');
 	Route::get('getByIMDBId/{id}', 'API\IMDBAPIController@getById');
 	Route::get('search/{keyword}/{year}', 'API\IMDBAPIController@search');
+	Route::get('searchYear/{year}', 'API\IMDBAPIController@localSearchYear');
+	Route::get('searchGenres/{genre}', 'API\IMDBAPIController@localSearchGenres');
+	Route::get('searchRating/{data}/{GL}', 'API\IMDBAPIController@localSearchByRating');
 });

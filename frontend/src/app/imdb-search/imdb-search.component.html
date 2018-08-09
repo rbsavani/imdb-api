@@ -1,20 +1,16 @@
 <div class="container">
   <h1>Search</h1>
-  <form id="form-id" (ngSubmit)="getIMDBData()" #imdbForm="ngForm" enctype="multipart/form-data">
+  <form id="form-id" (ngSubmit)="getIMDBData(1)" #imdbForm="ngForm" enctype="multipart/form-data">
     <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
       {{message}}
     </div>
     <div class="form-row">
       <div class="col-md-6">
-        <label for="isbn">Search</label>
+        <label for="search_txt">Search</label>
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="imdbData.search_txt" name="search_txt" required/>
       </div>
       <div class="col-md-2">
-        <label for="isbn">Year</label>
-        <input type="number" class="form-control" placeholder="Year" [(ngModel)]="imdbData.year" name="year"/>
-      </div>
-      <div class="col-md-2">
-        <label for="isbn">Filter By</label>
+        <label for="filter_by">Filter By</label>
         <select class="custom-select" [(ngModel)]="imdbData.filter_by" name="filter_by">
           <option value="" selected>Select</option>
           <option value="1">ID</option>
@@ -27,10 +23,20 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <br>
+    <div class="form-row">
+      <div class="col-md-2">
+        <label for="year">Year</label>
+        <input type="number" class="form-control" placeholder="Year" [(ngModel)]="imdbData.year" name="year"/>
+      </div>
+      <div class="col-md-2">
+        <div class="margin-top-32">
+          <button class="btn btn-primary" type="button" (click)="getLocalSearch(2)">Search</button>
+        </div>
+      </div>
     </div>
   </form>
-  <div class="card" *ngIf="resData.status == 'true'">
+  <div class="card" *ngIf="resData.status == 'true' && searchType == 1">
     <div class="card-header">
       Detail
     </div>

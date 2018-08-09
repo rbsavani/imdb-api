@@ -11,6 +11,7 @@ export class ImdbSearchComponent implements OnInit {
 
   imdbData = {search_txt:'', year:'', filter_by:''}
   message = ''
+  searchType = 0
   resData = {status:'false'}
   
   constructor(
@@ -23,9 +24,9 @@ export class ImdbSearchComponent implements OnInit {
   // Get Movie Detail By Title Search
   // Service Name : ImdbService
   // Method : GET
-  getIMDBData() {
+  getIMDBData(searchType) {
     var imdbData = this.imdbData
-    
+    this.searchType = searchType
     if (imdbData.filter_by != '') {
       if (imdbData.filter_by == '1') {
         this.imdbService.getIMDBDataByID(imdbData.search_txt)
@@ -70,6 +71,26 @@ export class ImdbSearchComponent implements OnInit {
                   this.message = ''
               }
           });
+    }
+  }
+
+  // Get Movie Detail By Title Search
+  // Service Name : ImdbService
+  // Method : GET
+  getLocalSearch(searchType) {
+    var imdbData = this.imdbData
+    this.searchType = searchType
+    if (this.searchType == 2) {
+          this.imdbService.getIMDBDataByLocalYear(imdbData.year)
+          .subscribe((response) => {
+            this.resData = response.data
+            if (this.resData.status == 'false') {
+                this.message = response.data.message
+            } else {
+                this.message = ''
+            }
+        });
+      }
     }
   }
 

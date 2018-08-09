@@ -1,7 +1,5 @@
 import { Component,ViewChild, OnInit } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-// import { NotificationService } from './../shared';
 import { ImdbService } from "./imdb.service";
 
 @Component({

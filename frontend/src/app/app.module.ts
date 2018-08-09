@@ -10,7 +10,6 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AlertModule } from 'ngx-bootstrap/alert'; 
-import { AuthenticationModule } from './shared';
 import { EnvironmentModule } from './shared';
 import { FormValidationModule } from './shared';
 import { NotificationModule } from './shared';
@@ -32,7 +31,6 @@ import { ImdbSearchComponent } from './imdb-search/imdb-search.component';
     HttpClientModule,
     FormsModule,
     HttpModule,
-    AuthenticationModule,
     EnvironmentModule,
     FormValidationModule,
     NotificationModule,

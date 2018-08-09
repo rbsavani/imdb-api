@@ -18,6 +18,9 @@ export class EnvironmentService {
 	setApiServiceById(serviceStr, id){
 	    return this.apiUrl +'api/'+ serviceStr +'/'+ id
 	}
+	setApiServiceByIdM(serviceStr, id, id1){
+	    return this.apiUrl +'api/'+ serviceStr +'/'+ id +'/'+ id1
+	}
 	setAuthService(serviceStr){
 	    return this.apiUrl + serviceStr
 	}

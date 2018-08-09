@@ -14,4 +14,6 @@ use Illuminate\Http\Request;
  */
 Route::group(['middleware' => ['cors','api']], function () {
 	Route::get('title/{title}', 'API\IMDBAPIController@title');
+	Route::get('getByIMDBId/{id}', 'API\IMDBAPIController@getById');
+	Route::get('search/{keyword}/{year}', 'API\IMDBAPIController@search');
 });

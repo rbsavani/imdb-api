@@ -23,6 +23,26 @@ export class ImdbService {
         .catch(this.handleError)
   }
 
+  // Get Movie Detail By IMDB ID Search
+  // Method : GET
+  // API Route Name : getByIMDBId
+  getIMDBDataByID($id){
+    let url = this.environmentService.setApiServiceById('getByIMDBId', $id)
+    return this._http.get(url)
+        .map(res=> res)
+        .catch(this.handleError)
+  }
+
+  // Get Movie Detail By Keyword and year Search
+  // Method : GET
+  // API Route Name : getByIMDBId
+  getIMDBDataByKeyword($keyword, $year){
+    let url = this.environmentService.setApiServiceByIdM('search', $keyword, $year)
+    return this._http.get(url)
+        .map(res=> res)
+        .catch(this.handleError)
+  }
+
   // Error Handler
   private handleError (error: HttpErrorResponse | any) {
     let errMsg: string;

@@ -8,10 +8,9 @@
 	npm install and yarn install<br>
 3.In backend run below command <br>
 	composer install<br>
-    php artisan key:generate<br>
-    php artisan migrate --seed<br>
-    php artisan passport:install<br>
-4.After you run passprt:install command you get 2 keys<br>
-	take second key and set it in frontend/enviroments/environment.ts and frontend/enviroments/environment.prod.ts and set backend url ex: http://localhost:8000	<br>
-    5.in fronetend run ng serve and in backend run php artisan serve 
+4.After you run  
+	Backend url ex: http://localhost:8000	<br>
+5.in fronetend run ng serve and in backend run php artisan serve
+	Frontend url ex: http://localhost:4200	<br>
+    
     
